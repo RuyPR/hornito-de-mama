@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sorteo · El Hornito de Mamá</title>
+<title>Sorteo dominguero · El Hornito de Mamá</title>
 <style>
 :root{
   --pink:#f8d9df;--red:#c92f52;--red2:#9f1e3c;
@@ -126,6 +126,160 @@ textarea{
   .header-text{text-align:center}
   .wheel-area{width:92vw}
 }
+
+/* ===== LAPTOP HORIZONTAL LAYOUT ===== */
+html,body{width:100%;height:100%;overflow:hidden}
+body{min-height:100vh}
+
+.card{
+  width:min(1240px,96vw);
+  height:min(700px,94vh);
+  min-height:600px;
+  padding:18px 22px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  grid-template-rows:92px minmax(0,1fr);
+  column-gap:24px;
+  row-gap:4px;
+  align-items:stretch;
+}
+
+.header{
+  grid-column:1 / -1;
+  grid-row:1;
+  min-height:0;
+  gap:13px;
+  justify-content:flex-start;
+  padding:0 10px;
+}
+.logo{width:72px;height:72px}
+.header-text{min-width:0}
+.brand{font-size:12px}
+h1{font-size:40px;line-height:1}
+.subtitle{font-size:15px;margin:4px 0 0}
+
+.wheel-column{
+  grid-column:1;
+  grid-row:2;
+  min-width:0;
+  min-height:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.wheel-column .badge{margin-bottom:3px;padding:6px 14px;font-size:13px}
+.wheel-area{
+  width:min(560px,100%);
+  max-height:calc(100% - 28px);
+  aspect-ratio:1;
+  margin:0 auto;
+}
+.wheel-area canvas{width:100%;height:100%}
+
+.side-column{
+  grid-column:2;
+  grid-row:2;
+  min-width:0;
+  min-height:0;
+  height:100%;
+  padding:8px 2px;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  border-left:2px dashed #efb3c0;
+  padding-left:22px;
+}
+.side-title{
+  font-size:18px;
+  margin:2px 0 8px;
+  text-align:left;
+}
+.side-column .status{
+  min-height:42px;
+  margin:0 0 8px;
+  padding:10px 12px;
+  background:#fff4f5;
+  border-radius:12px;
+  text-align:center;
+}
+.side-column .winners{
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  gap:10px;
+  margin:4px 0 12px;
+}
+.side-column .winner{
+  width:100%;
+  min-width:0;
+  padding:13px 12px;
+  text-align:center;
+}
+.side-column .winner strong{font-size:22px}
+.side-column #spin{
+  width:100%;
+  margin:6px 0 0;
+  flex:0 0 auto;
+  padding:14px 12px;
+  font-size:18px;
+}
+.side-column .editor{
+  width:100%;
+  max-width:none;
+  margin:10px 0 0;
+}
+.side-column .editor summary{
+  margin-left:auto;
+  margin-right:0;
+}
+
+/* Keep configuration closed and unobtrusive during the recording. */
+.editor-content{max-height:310px;overflow:auto}
+
+@media (min-width:1000px) and (max-height:780px){
+  .card{
+    height:calc(100vh - 24px);
+    min-height:0;
+    padding:14px 18px;
+    grid-template-rows:82px minmax(0,1fr);
+  }
+  .logo{width:64px;height:64px}
+  h1{font-size:36px}
+  .subtitle{font-size:14px}
+  .side-column{padding-top:4px;padding-left:18px}
+  .side-title{font-size:17px}
+  .side-column .winner{padding:10px}
+  .side-column .winner strong{font-size:20px}
+  .side-column #spin{padding:12px;font-size:17px}
+}
+
+/* Only switch to a stacked/mobile presentation on genuinely narrow screens. */
+@media (max-width:900px){
+  html,body{overflow:auto}
+  .card{
+    width:94vw;
+    height:auto;
+    min-height:96vh;
+    display:block;
+    padding:18px 12px;
+  }
+  .header{justify-content:center;padding:0}
+  .header-text{text-align:center}
+  .wheel-column{display:flex;height:auto}
+  .wheel-area{width:min(92vw,590px);max-height:none}
+  .side-column{
+    display:flex;
+    height:auto;
+    border-left:0;
+    border-top:2px dashed #efb3c0;
+    padding:16px 0 0;
+    margin-top:12px;
+  }
+}
+
 </style>
 </head>
 <body>
